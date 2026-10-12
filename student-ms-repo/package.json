@@ -1,0 +1,21 @@
+{
+  "name": "student-ms",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Austin Education 学生管理系统 — 技术作业",
+  "workspaces": ["server", "client", "shared"],
+  "scripts": {
+    "dev": "concurrently -n server,client -c blue,green \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:server": "npm run dev --workspace server",
+    "dev:client": "npm run dev --workspace client",
+    "build": "npm run build --workspace server && npm run build --workspace client",
+    "db:seed": "npm run seed --workspace server",
+    "db:reset": "npm run reset --workspace server"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}
